@@ -52,7 +52,7 @@ class BelongsToDependency extends BelongsTo
         $query = parent::buildAssociatableQuery($request, $withTrashed);
 
         if($request->has('dependsOnValue')) {
-            $query->where($this->meta['dependsOnKey'], $request->dependsOnValue);
+            $query->toBase()->where($this->meta['dependsOnKey'], $request->dependsOnValue);
         }
 
         return $query;
